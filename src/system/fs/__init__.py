@@ -28,7 +28,7 @@ EMPTY_DIR: FSType = {
 
 default_fs: FSType = {
 	"dirs": {
-		"proc": { *EMPTY_DIR },
+		"proc": { **EMPTY_DIR },
 		"cfg": {
 			"dirs": {
 				"security": {
@@ -47,7 +47,7 @@ default_fs: FSType = {
 			"files": {
 			}
 		},
-		"home": { *EMPTY_DIR }
+		"home": { **EMPTY_DIR }
 	},
 	"files": {}
 }

@@ -24,13 +24,19 @@ def get_dir(path: str) -> FSType:
 
 	return working_dir
 
+def dir_exists(path: str) -> bool:
+	try: get_dir(path)
+	except KeyError: return False
+
+	return True	
+
 def get_file_content(caller: Process, path: str) -> bytes:
 	parts = path.split('/')
 
 	if parts[0] == '':
 		return get_dir('/'.join(parts[:-1]))["files"][parts[-1]]
 	else:
-		return get_dir(caller.cwd + '/'.join(parts[:-1]))["files"][parts[-1]]
+		return get_dir(caller.cwd + '/' + '/'.join(parts[:-1]))["files"][parts[-1]]
 
 
 def read(caller: Process, fd: FDEntry) -> tuple[int, bytes]:

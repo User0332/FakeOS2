@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from system.osrequest import OSRequest
+from osreq import OSRequest
 from typing import Callable
 from fs import FDEntry
 
